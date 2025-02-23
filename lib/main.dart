@@ -113,6 +113,25 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+    
+    bottomNavigationBar: BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.usb_rounded),
+          label: "Profile",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.mail_rounded),
+          label: "Mail",
+        ),
+      ]
+      
+      ),
+    
     );
   }
 }
