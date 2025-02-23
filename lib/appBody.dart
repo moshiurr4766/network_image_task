@@ -1,69 +1,65 @@
-
 import 'package:flutter/material.dart';
 
-class Data extends StatefulWidget {
-  const Data({super.key});
+class Appbody extends StatefulWidget {
+  const Appbody({super.key});
 
   @override
-  State<Data> createState() => _DataState();
+  State<Appbody> createState() => _AppbodyState();
 }
 
-class _DataState extends State<Data> {
+class _AppbodyState extends State<Appbody> {
+  int currentIndex = 0;
+
+  final List<Widget> pages = [
+    Text('Home'),
+    Text('Search'),
+    Text('Add'),
+    Text('Favorite'),
+    Text('Profile'),
+  ];
+
+  void onTapMethod(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-      child: ListView(
-        children: [
-          SizedBox(
-            height: 100,
-            child: DrawerHeader(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.tiktok),
-                  SizedBox(width: 150,),
-                  TextButton(
-                    onPressed: (){}, 
-                    child: Icon(Icons.close)),
-                ],
-
-              ),
-            ),
+      body: Center(
+        child: pages[currentIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTapMethod,
+        currentIndex: currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.amber,
           ),
-
-          ListTile(
-            focusColor: Colors.grey[500],
-            title: Text("Home"),
-            leading: Icon(Icons.home),
-            onTap: (){},
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+            backgroundColor: Colors.amber,
           ),
-          ListTile(
-            focusColor: Colors.grey[600],
-            title: Text("Telegram"),
-            leading: Icon(Icons.near_me),
-            onTap: (){},
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Add',
+            backgroundColor: Colors.amber,
           ),
-          ListTile(
-            focusColor: Colors.grey[500],
-            title: Text("What's Up"),
-            leading: Icon(Icons.whatshot),
-            onTap: (){},
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+            backgroundColor: Colors.amber,
           ),
-          ListTile(
-            focusColor: Colors.grey[600],
-            title: Text("Facebook"),
-            leading: Icon(Icons.facebook),
-            onTap: (){},
-          ),
-          ListTile(
-            focusColor: Colors.grey[500],
-            title: Text("About"),
-            leading: Icon(Icons.contrast),
-            onTap: (){},
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
+            backgroundColor: Colors.amber,
           ),
         ],
-      ),
       ),
     );
   }
