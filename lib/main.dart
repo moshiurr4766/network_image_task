@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[700],
-        title: Text("App"),
+        title: Text("AI META",),
         centerTitle: true,
       ),
       body: Container(
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                   Center(
                     child: TextButton(
                       child: Text(
-                        'Welcome to Quote App',
+                        'WELCOME TO AI META',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
